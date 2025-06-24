@@ -1,4 +1,6 @@
 def generate_brackets():
+    print("Welcome to brackets generating program!")
+    print("Input a max number of same brackets in string: ")
     n = int(input())
     generate_all_seq("", 0, 0, n)
 
