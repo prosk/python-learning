@@ -1,0 +1,39 @@
+# my non-recursive solution
+def find_closest_value_iterative(tree, target):
+    curr_node = tree
+    min_diff = closest = None
+    while curr_node:
+        if curr_node.value == target:
+            return target
+        curr_diff = abs(target - curr_node.value)
+        if min_diff is None or min_diff > curr_diff:
+            min_diff = curr_diff
+            closest = curr_node.value
+        curr_node = curr_node.right if target > curr_node.value else curr_node.left       
+    return closest 
+
+# recursive solution
+def find_closest_value_recursive(tree, target):
+    return find_closest_value_helper(tree, target, tree.value)
+
+def find_closest_value_helper(tree, target, closest):
+    if tree is None:
+        return closest 
+    if abs(tree.value - target) < abs(closest - target):
+        closest = tree.value 
+    if target > tree.value:
+        return find_closest_value_helper(tree.right, target, closest)
+    elif target < tree.value:
+        return find_closest_value_helper(tree.left, target, closest)
+    else:
+        return target                    
+
+# This is the class of the input tree. Do not edit.
+class BST:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+def main():
+    pass                
