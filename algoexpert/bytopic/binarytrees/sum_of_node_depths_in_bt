@@ -1,4 +1,5 @@
-def nodeDepths(root):
+# recursive approach
+def node_depth_recursive(root):
     return calc_node_depth_sum(root, 0)
 
 
@@ -8,7 +9,19 @@ def calc_node_depth_sum(node, curr_depth):
     left_sum = calc_node_depth_sum(node.left, curr_depth + 1)
     right_sum = calc_node_depth_sum(node.right, curr_depth + 1)
     return curr_depth + left_sum + right_sum
-        
+
+# iterative approach
+def node_depth_iterative(root):
+    ans = 0
+    stack = [(root, 0)]
+    while len(stack) > 0:
+        node, depth = stack.pop()
+        if node is None:
+            continue
+        ans += depth
+        stack.append((node.left, depth + 1))
+        stack.append((node.right, depth + 1))
+    return ans 
 
 # This is the class of the input binary tree.
 class BinaryTree:
