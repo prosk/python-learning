@@ -8,6 +8,7 @@ def transpose_with_init(matrix):
             ans[col_ind][row_ind] = matrix[row_ind][col_ind]
     return ans
 
+
 # with append
 def transpose_with_append(matrix):
     row_cnt = len(matrix)
@@ -18,12 +19,14 @@ def transpose_with_append(matrix):
         for row_ind in range(row_cnt):
             new_row.append(matrix[row_ind][col_ind])
         ans.append(new_row)
-    return ans 
+    return ans
+
 
 def main():
     matrix = [[1, 2, 3], [4, 5, 6]]
     print(transpose_with_init(matrix))
-    print(transpose_with_append(matrix))    
+    print(transpose_with_append(matrix))
+
 
 if __name__ == "__main__":
-    main()        
+    main()
