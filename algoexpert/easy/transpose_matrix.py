@@ -23,7 +23,8 @@ def transpose_with_append(matrix):
 
 
 def main():
-    matrix = [[1, 2, 3], [4, 5, 6]]
+    matrix = [[1, 2, 3], 
+              [4, 5, 6]]
     print(transpose_with_init(matrix))
     print(transpose_with_append(matrix))
 
